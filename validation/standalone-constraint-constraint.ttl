@@ -124,6 +124,14 @@
         sh:path rdf:rest;
         sh:minCount 1;
         sh:maxCount 1;
+	sh:or (
+	    [
+	        sh:node <listnode>;
+	    ]
+	    [
+	        sh:hasValue rdf:nil;
+	    ]
+	) ;
         sh:message "a rdf:List can only have one rdf:rest node, multiples nodes need to be linked"
         #sh:node <restnode>;
     ]
