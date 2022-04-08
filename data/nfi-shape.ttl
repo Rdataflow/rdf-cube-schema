@@ -1,0 +1,109 @@
+@prefix schema: <http://schema.org/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cube: <https://cube.link/> .
+@prefix meta: <https://cube.link/meta/> .
+
+<https://environment.ld.admin.ch/foen/nfi/49-19-None-None/cube/1> a schema:Dataset , cube:Cube ;
+   schema:name "LFI Data Cube [Version 1]: Waldfläche / Produktionsregion "@en ;
+   schema:dateCreated "2022-02-07"^^xsd:date ;
+   schema:description "LFI Data Cube [Version 1] 49-19-None-None"@en ;
+   schema:creator <https://environment.ld.admin.ch/foen/nfi/Organization/NFI> ;
+   schema:contributor <https://environment.ld.admin.ch/foen/nfi/Organization/NFI> ;
+   schema:publisher <https://environment.ld.admin.ch/foen/nfi/Organization/NFI> ;
+   schema:contactPoint <https://environment.ld.admin.ch/foen/nfi/Organization/NFI> ;
+   schema:workExample <https://ld.admin.ch/application/visualize> ;
+   schema:creativeWorkStatus <https://ld.admin.ch/vocabulary/creativeWorkStatus/Draft> ;
+   schema:version 1 ;
+   cube:observationSet <https://environment.ld.admin.ch/foen/nfi/49-19-None-None/cube/1/observation/> ;
+   cube:observationConstraint <https://environment.ld.admin.ch/foen/nfi/49-19-None-None/cube/1/shape/> .
+
+<https://environment.ld.admin.ch/foen/nfi/49-19-None-None/cube/1/shape/> a sh:NodeShape , cube:Constraint ;
+   sh:closed true ;
+   sh:property 
+ [
+   a cube:KeyDimension ;
+   schema:name "Auswertungseinheit"@de , "unit of evaluation"@en , "ensemble analysé"@fr , "unità di analisi"@it ;
+   sh:path <https://environment.ld.admin.ch/foen/nfi/unitOfEvaluation> ;
+   sh:in ( <https://environment.ld.admin.ch/foen/nfi/UnitOfEvaluation/Zgwald34> <https://environment.ld.admin.ch/foen/nfi/UnitOfEvaluation/Zgwald1234> <https://environment.ld.admin.ch/foen/nfi/UnitOfEvaluation/Zwald> ) ;
+   sh:nodeKind sh:IRI ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   qudt:scaleType qudt:NominalScale
+ ],
+ [
+   a cube:KeyDimension ;
+   schema:name "Bestandesstruktur"@de , "stand structure"@en , "structure (du peuplement)"@fr , "struttura del popolamento"@it ;
+   sh:path <https://environment.ld.admin.ch/foen/nfi/struk> ;
+   sh:in ( <https://environment.ld.admin.ch/foen/nfi/ClassificationUnit/Struk/1> <https://environment.ld.admin.ch/foen/nfi/ClassificationUnit/Struk/Total> <https://environment.ld.admin.ch/foen/nfi/ClassificationUnit/Struk/4> <https://environment.ld.admin.ch/foen/nfi/ClassificationUnit/Struk/2> <https://environment.ld.admin.ch/foen/nfi/ClassificationUnit/Struk/3> <https://environment.ld.admin.ch/foen/nfi/ClassificationUnit/Struk/-1> ) ;
+   sh:nodeKind sh:IRI ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   qudt:scaleType qudt:NominalScale
+ ],
+ [
+   a cube:KeyDimension ;
+   schema:name "Produktionsregion"@de , "production region"@en , "région de production"@fr , "regione di produzione"@it ;
+   sh:path <https://environment.ld.admin.ch/foen/nfi/prodreg> ;
+   sh:in ( <https://environment.ld.admin.ch/foen/nfi/UnitOfReference/Prodreg/1> <https://environment.ld.admin.ch/foen/nfi/UnitOfReference/Prodreg/2> <https://environment.ld.admin.ch/foen/nfi/UnitOfReference/Prodreg/Switzerland> <https://environment.ld.admin.ch/foen/nfi/UnitOfReference/Prodreg/5> <https://environment.ld.admin.ch/foen/nfi/UnitOfReference/Prodreg/3> <https://environment.ld.admin.ch/foen/nfi/UnitOfReference/Prodreg/4> ) ;
+   sh:nodeKind sh:IRI ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   qudt:scaleType qudt:NominalScale ;
+   meta:dataKind [ a schema:GeoShape ]
+ ],
+ [
+   a cube:KeyDimension ;
+   schema:name "Beobachtet von"@de , "Observed by"@en , "Observé par"@fr , "Osservato da"@it ;
+   sh:path cube:observedBy ;
+   sh:in ( <https://environment.ld.admin.ch/foen/nfi/Organization#NFI> ) ;
+   sh:nodeKind sh:IRI ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   qudt:scaleType qudt:NominalScale
+ ],
+ [
+   a cube:KeyDimension ;
+   schema:name "Inventur"@de , "Inventory"@en , "Inventaire"@fr , "Inventario"@it ;
+   sh:path <https://environment.ld.admin.ch/foen/nfi/inventory> ;
+   sh:in ( <https://environment.ld.admin.ch/foen/nfi/Inventory/150> <https://environment.ld.admin.ch/foen/nfi/Inventory/450> <https://environment.ld.admin.ch/foen/nfi/Inventory/250> <https://environment.ld.admin.ch/foen/nfi/Inventory/350> ) ;
+   sh:nodeKind sh:IRI ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   qudt:scaleType qudt:NominalScale
+ ],
+ [
+   a cube:MeasureDimension ;
+   schema:name "Waldfläche"@de , "forest area"@en , "surface forestière"@fr , "superficie forestale"@it ;
+   sh:path <https://environment.ld.admin.ch/foen/nfi/forestArea> ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   qudt:unit unit:HA ;
+   qudt:scaleType qudt:IntervalScale ;
+   sh:or ( [ sh:datatype xsd:decimal ] [ sh:datatype cube:Undefined ] ) ;
+ ],
+ [
+   schema:name "Standard error (SE) of estimate"@de , "Standard error (SE) of estimate"@en , "Standard error (SE) of estimate"@fr , "Standard error (SE) of estimate"@it ;
+   sh:path <https://environment.ld.admin.ch/foen/nfi/standardErrorForestArea> ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   schema:description "Standard error (SE) of estimate" ;
+   qudt:unit unit:PERCENT ;
+   qudt:scaleType qudt:IntervalScale ;
+   sh:or ( [ sh:datatype xsd:decimal ] [ sh:datatype cube:Undefined ] ) ;
+   meta:dimensionRelation [ a <https://cube.link/relation/StandardError>; meta:relatesTo <https://environment.ld.admin.ch/foen/nfi/forestArea>; ] ; 
+ ], 
+ [
+   a cube:KeyDimension ;
+   schema:name "Netz"@de , "grid"@en , "réseau"@fr , "reticolo"@it ;
+   sh:path <https://environment.ld.admin.ch/foen/nfi/grid> ;
+   sh:in ( <https://environment.ld.admin.ch/foen/nfi/Grid/N4> ) ;
+   sh:nodeKind sh:IRI ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+   qudt:scaleType qudt:NominalScale
+ ] .
