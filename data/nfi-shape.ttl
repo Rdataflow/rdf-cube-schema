@@ -54,7 +54,17 @@
    sh:minCount 1 ;
    sh:maxCount 1 ;
    qudt:scaleType qudt:NominalScale ;
-   meta:dataKind [ a schema:GeoShape ]
+   meta:dataKind [ a schema:GeoShape ] ;
+   meta:inHierarchy [
+  a meta:Hierarchy ;
+  meta:hierarchyRoot <https://ld.admin.ch/country/CHE> ;
+  schema:name "CH - Canton" ;
+  meta:nextInHierarchy [
+    schema:name "Canton" ;
+    sh:path [ sh:inversePath <http://schema.org/containedInPlace> ] ;
+    sh:targetClass <https://schema.ld.admin.ch/Canton> ;
+  ]
+] ;
  ],
  [
    a cube:KeyDimension ;
@@ -74,7 +84,20 @@
    sh:nodeKind sh:IRI ;
    sh:minCount 1 ;
    sh:maxCount 1 ;
-   qudt:scaleType qudt:NominalScale
+   qudt:scaleType qudt:NominalScale;
+   meta:inHierarchy [
+    a meta:Hierarchy ;
+    meta:hierarchyRoot <https://ld.admin.ch/country/CHE>;
+    schema:name "CH - Canton - Municipality" ;
+    meta:nextInHierarchy [
+      schema:name "Canton" ;
+      sh:path <http://schema.org/containsPlace> ;
+      meta:nextInHierarchy [
+        schema:name "Municipality" ;
+        sh:path <http://schema.org/containsPlace> ;
+      ]
+    ]
+  ]
  ],
  [
    a cube:MeasureDimension ;
