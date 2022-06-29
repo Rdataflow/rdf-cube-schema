@@ -39,6 +39,10 @@ program
     console.log(`cube validation ${report.conforms ? 'successful' : 'failed'}`)
 
     for (const result of results.flat()) {
+      console.log('================================')
+      console.dir(result, { depth: 19 })
+      console.log(`path: ${toNT(result.path)}`)
+      console.log(`focusNode: ${toNT(result.focusNode)}`)
       console.log(validationResultToString(result))
     }
 

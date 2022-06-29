@@ -107,7 +107,7 @@
    sh:maxCount 1 ;
    qudt:unit unit:HA ;
    qudt:scaleType qudt:IntervalScale ;
-   sh:or ( [ sh:datatype xsd:decimal ] [ sh:datatype cube:Undefined ] ) ;
+#   sh:or ( [ sh:datatype xsd:decimal ] [ sh:datatype cube:Undefined ] ) ;
  ],
  [
    schema:name "Standard error (SE) of estimate"@de , "Standard error (SE) of estimate"@en , "Standard error (SE) of estimate"@fr , "Standard error (SE) of estimate"@it ;
@@ -117,7 +117,7 @@
    schema:description "Standard error (SE) of estimate" ;
    qudt:unit unit:PERCENT ;
    qudt:scaleType qudt:IntervalScale ;
-   sh:or ( [ sh:datatype xsd:decimal ] [ sh:datatype cube:Undefined ] ) ;
+#   sh:or ( [ sh:datatype xsd:decimal ] [ sh:datatype cube:Undefined ] ) ;
    meta:dimensionRelation [ a <https://cube.link/relation/StandardError>; meta:relatesTo <https://environment.ld.admin.ch/foen/nfi/forestArea>; ] ; 
  ], 
  [
